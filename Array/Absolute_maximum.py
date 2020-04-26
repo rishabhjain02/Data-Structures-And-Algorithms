@@ -7,7 +7,7 @@ Given 4 array of integers A, B, C and D of same size, find and return the maximu
 
 Problem Constraints
 1 <= length of the array A, B, C, D <= 100000
--106 <= A[i] <= 106
+-10^6 <= A[i] <= 10^6
 
 
 Input Format
