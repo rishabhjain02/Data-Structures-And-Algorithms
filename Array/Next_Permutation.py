@@ -8,7 +8,7 @@ DO NOT USE LIBRARY FUNCTION FOR NEXT PERMUTATION. Use of Library functions will 
 
 
 Problem Constraints
-1 <= N <= 5 * 105 1 <= A[i] <= 109 
+1 <= N <= 5 * 10^5 1 <= A[i] <= 10^9 
 
 
 Input Format
