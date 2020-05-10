@@ -70,7 +70,6 @@ class Solution:
                 val2 = end
                 
             if abs(A[start]+B[end]-C) == min_val and start == val1 and end<val2:
-                min_val = abs(A[start]+B[end]-C)
                 val2 = end
                 
             if A[start]+B[end] > C:
