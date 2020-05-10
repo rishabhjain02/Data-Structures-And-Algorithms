@@ -19,7 +19,7 @@ class Solution:
 	    n = len(A)
 	    start = 0
 	    end = 1
-	    while(end<n and start<n):
+	    while(end<n):
 	        if start == end:
 	            end += 1
 	            
