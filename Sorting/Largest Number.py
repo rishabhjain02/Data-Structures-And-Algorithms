@@ -43,24 +43,64 @@ Explanation 2:
 
 """
 
+def myComparator(x, y):
+    xy = str(x) + str(y)
+    yx = str(y) + str(x)
+    return ((int(yx) > int(xy)) - (int(yx) < int(xy))) 
+    
+def compare(mycmp):
+    
+    class C(object):
+        def __init__(self, obj, *args):
+            self.obj = obj
+        def __lt__(self, other):
+            return mycmp(self.obj, other.obj) < 0
+        def __gt__(self, other):
+            return mycmp(self.obj, other.obj) > 0
+        def __eq__(self, other):
+            return mycmp(self.obj, other.obj) == 0
+        def __le__(self, other):
+            return mycmp(self.obj, other.obj) <= 0
+        def __ge__(self, other):
+            return mycmp(self.obj, other.obj) >= 0
+        def __ne__(self, other):
+            return mycmp(self.obj, other.obj) != 0
+            
+    return C
+
 class Solution:
     # @param A : tuple of integers
     # @return a strings
+    
     def largestNumber(self, A):
-        new_val = []
-        ans = ""
-        max_len = len(str(max(A))) + 1
-        
         if max(A) == 0:
             return 0
-            
-        for num in A:
-            temp = str(num)*max_len
-            new_val.append((temp[:max_len], num))
-            
-        new_val.sort(reverse = True)
-        
-        for i in new_val:
-            ans += str(i[1])
-            
+        sorted_arr = sorted(A, key = compare(myComparator))
+        ans = "".join([str(i) for i in sorted_arr])
         return ans
+
+
+
+# Second approach ---->
+
+# class Solution:
+#     # @param A : tuple of integers
+#     # @return a strings
+#     def largestNumber(self, A):
+#         new_val = []
+#         ans = ""
+#         max_len = len(str(max(A))) + 1
+        
+#         if max(A) == 0:
+#             return 0
+            
+#         for num in A:
+#             temp = str(num)*max_len
+#             new_val.append((temp[:max_len], num))
+            
+#         new_val.sort(reverse = True)
+        
+#         for i in new_val:
+#             ans += str(i[1])
+            
+#         return ans
