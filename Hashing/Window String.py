@@ -91,7 +91,7 @@ class Solution:
 	        # If the cur. char is in freq_b and freq of that char in freq_a <= that in freq_b
 	        # So, that char is valid and we increase the count
 	        # count is basically storing the count of char present in B and currently visited in A
-	        if A[i] in freq_b and freq_a[A[i]] <= freq_b[A[i]]:
+	        if freq_a[A[i]] <= freq_b[A[i]]:
 	            count += 1
 	            
 	        # if count == len(B) It means we have find all the required char of B
@@ -101,10 +101,7 @@ class Solution:
 	            # If char at start is not present in B or the freq. of that char in freq_a > freq_b
 	            # It means we can move start ahead.
 	            while A[start] not in freq_b or freq_a[A[start]] > freq_b[A[start]]:
-	                
-	                # If the freq. of char in freq_a > freq_b, So we can delete that char from freq_a
-	                if freq_a[A[start]] > freq_b[A[start]]:
-	                    freq_a[A[start]] -= 1
+	                freq_a[A[start]] -= 1
 	                start += 1
 	                
 	            # Find current window size     
