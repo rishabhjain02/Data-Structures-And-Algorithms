@@ -101,27 +101,24 @@ Explanation 2:
 #        self.left = None
 #        self.right = None
 
-def inorder(root, temp_set):
+def inorder(root, s):
     if root == None:
         return
     
-    inorder(root.left, temp_set)
-    temp_set.add(root.val)
-    inorder(root.right, temp_set)
+    inorder(root.left, s)
+    s.add(root.val)
+    inorder(root.right, s)
 
 class Solution:
     # @param A : root node of tree
     # @param B : root node of tree
     # @return an integer
     def solve(self, A, B):
-        temp_set = set()
         set1 = set()
         set2 = set()
-        inorder(A, temp_set)
-        set1 = temp_set
-        temp_set = set()
-        inorder(B, temp_set)
-        set2 = temp_set
+        
+        inorder(A, set1)
+        inorder(B, set2)
         
         ans = set1.intersection(set2)
 
@@ -130,3 +127,4 @@ class Solution:
             common_sum = (common_sum + x) % (10**9+7)
         return common_sum
         
+
